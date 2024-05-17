@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic HTML Table</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: blue; 
+      color: white; 
+      padding: 8px;
+      text-align: left;
+    }
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    .account-status {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      padding-bottom: 8px;
+      margin-bottom: 20px; 
+    }
+    .account-status span {
+      margin-right: 250px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Account Statement of <%= records.length %> total records : <%= records.length %></h1>
+  <div class="account-status">
+    <span>Account No: <%= accountNumber %></span>
+    <span>Status: <%= status %></span>
+  </div>
+  <div class="account-status">
+    <span>Name: <%= name %></span>
+    <span>Company Name: <%= companyName %></span>
+  </div>
+  <div class="account-status">
+    <span>Assign Currency: <%= currency %></span>
+    <span>Activation Date: <%= activationDate %></span>
+  </div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+    <% records.forEach(record => { %>
+    <tr>
+      <td><%= record.name %></td>
+      <td><%= record.age %></td>
+      <td><%= record.city %></td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
